@@ -15,7 +15,8 @@ class thermistor
         float adcResolution = pow(2, (float)(10 + decimation));
         float _pullup;
         float _referenceVoltage;
-        float beta = 3950.0;
+        /*These parameters are characteristic of the thermistor to be used and must be configured based on these characteristics. Read the data sheet for your thermistor until you use the library.*/
+        float beta = 3950.0; 
         float defaultTemp = 25.0;
         float defaultResistance = 100000.0;
 };
