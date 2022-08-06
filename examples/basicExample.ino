@@ -1,6 +1,6 @@
-#include <thermistor.h>
+#include <Thermistor.h>
 
-thermistor therm1(A0, 10000.0, 5.0); // Analog pin which is connected to the thermistor, pullup resistor to setup the voltage divider, finally, reference voltage used as power supply of the voltage divider.
+Thermistor therm(A0, 10000.0, 5.0); // Analog pin which is connected to the thermistor, pullup resistor to setup the voltage divider, finally, reference voltage used as power supply of the voltage divider.
 
 void setup()
 {
@@ -9,7 +9,7 @@ void setup()
 
 void loop() 
 {
-    float temp = therm1.analog2temp(); // Reading temperature using library methods
+    float temp = therm.analog2temp(); // Reading temperature using library methods
     Serial.print("Temperature: ");
     Serial.println(temp); // Printing temperature value in serial port
     delay(2000);

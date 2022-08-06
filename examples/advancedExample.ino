@@ -1,4 +1,4 @@
-#include <thermistor.h>
+#include <Thermistor.h>
 
 thermistor therm1(A0, 10000.0, 5.0); // Analog pin which is connected to the thermistor, pullup resistor to setup the voltage divider, finally, reference voltage used as power supply of the voltage divider.
 thermistor therm2(A1, 10000.0, 5.0);

@@ -1,6 +1,6 @@
 #include <Arduino.h>
 #include <math.h>
-#include <thermistor.h>
+#include <Thermistor.h>
 
 /**
  * This function sets the pin mode to input, sets the pin number, sets the pullup resistor value, and
@@ -11,7 +11,7 @@
  * @param referenceVoltage The voltage of the power supply that the thermistor is connected to.
  */
 
-thermistor::thermistor(int pin, float pullup, float referenceVoltage) 
+Thermistor::Thermistor(int pin, float pullup, float referenceVoltage) 
 {
     pinMode(pin, INPUT);
     _pin = pin;
@@ -26,10 +26,10 @@ thermistor::thermistor(int pin, float pullup, float referenceVoltage)
  * @return The temperature in degrees Celsius.
  */
 
-float thermistor::analog2temp() 
+float Thermistor::analog2temp() 
 {
-    int raw = 0;
-    for (int i = 0; i < 10; i++) for(int j = 0; j < samples; j++) raw += analogRead(_pin);
+    long raw = 0;
+    for(byte avg = 0; avg < 10; avg++) for(int j = 0; j < samples; j++) raw += analogRead(_pin);
     raw = (raw / 10);
     raw = raw >> decimation;
     float voltage = raw * (5.0 / adcResolution);
