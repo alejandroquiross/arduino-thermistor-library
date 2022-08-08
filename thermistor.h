@@ -3,10 +3,10 @@
 
 #include <math.h>
 
-class Thermistor
+class thermistor
 {
     public:
-        Thermistor(int pin, float pullup, float referenceVoltage);
+        thermistor(int pin, float pullup, float referenceVoltage);
         float analog2temp();
     private:
         int _pin;

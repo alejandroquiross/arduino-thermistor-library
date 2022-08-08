@@ -1,7 +1,12 @@
-#include <Thermistor.h>
+#include <thermistor.h>
 
-Thermistor therm1(A0, 10000.0, 5.0); // Analog pin which is connected to the thermistor, pullup resistor to setup the voltage divider, finally, reference voltage used as power supply of the voltage divider.
-Thermistor therm2(A1, 10000.0, 5.0);
+int adc0 = A0; //An analog port number to be attached to the thermistor.
+int adc1 = A1;
+float pullup = 10000.0; //The ohms value of the fixed resistor (based on your hardware setup, usually 10k).
+float referenceVoltage = 5.0; //Input voltage (3.3, 5, or something else if you're using a voltage divider).
+
+thermistor therm1(adc0, pullup, referenceVoltage); // Analog pin which is connected to the thermistor, pullup resistor to setup the voltage divider, finally, reference voltage used as power supply of the voltage divider.
+thermistor therm2(adc1, pullup, referenceVoltage);
 
 void setup()
 {
